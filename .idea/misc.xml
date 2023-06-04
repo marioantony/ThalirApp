@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/dialogbkg.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/green_border.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_create_order.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_create_schedule.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_detailed.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottomsheetlayout.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/fragment_shorts.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/fragment_subscriptions.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/list_view.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/progress_layout.xml" value="0.15020263424518743" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.2814814814814815" />
       </map>

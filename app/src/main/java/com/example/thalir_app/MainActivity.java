@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -61,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.shorts:
+                case R.id.orders:
                     replaceFragment(new ShortsFragment());
                     break;
-                case R.id.subscriptions:
+                case R.id.stats:
                     replaceFragment(new SubscriptionsFragment());
                     break;
-                case R.id.library:
+                case R.id.profile:
                     replaceFragment(new LibraryFragment());
                     break;
             }
@@ -100,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout videoLayout = dialog.findViewById(R.id.layoutVideo);
         LinearLayout shortsLayout = dialog.findViewById(R.id.layoutShorts);
-        LinearLayout liveLayout = dialog.findViewById(R.id.layoutLive);
         ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
 
         videoLayout.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 dialog.dismiss();
-                Toast.makeText(MainActivity.this,"Upload a Video is clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), CreateSchedule.class);
+                startActivity(intent);
+//                Toast.makeText(MainActivity.this,"Upload a Video is clicked",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -118,17 +120,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 dialog.dismiss();
-                Toast.makeText(MainActivity.this,"Create a short is Clicked",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        liveLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this,"Go live is Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), CreateOrder.class);
+                startActivity(intent);
+//                Toast.makeText(MainActivity.this,"Create a short is Clicked",Toast.LENGTH_SHORT).show();
 
             }
         });

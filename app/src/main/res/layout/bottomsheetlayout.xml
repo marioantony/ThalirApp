@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload a video"
+            android:text="Create Schedule"
             android:textColor="@color/lavender"
             android:layout_marginLeft="30dp"
             android:textSize="16sp"/>
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create a short"
+            android:text="Create a order"
             android:textColor="@color/lavender"
             android:layout_marginLeft="30dp"
             android:textSize="16sp"/>
