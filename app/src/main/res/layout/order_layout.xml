@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="15dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:visibility="visible"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/farmerNameId"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="Mario Antony"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/locationId"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@id/farmerNameId"
+            android:text="Neerveli"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/orderedBagId"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@id/locationId"
+            android:text="20 Bags"
+            android:textColor="@color/lavender"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

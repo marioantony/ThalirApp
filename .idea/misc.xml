@@ -11,13 +11,15 @@
         <entry key="app/src/main/res/layout/activity_detailed.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottomsheetlayout.xml" value="0.14285714285714285" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14336372847011145" />
-        <entry key="app/src/main/res/layout/fragment_library.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_library.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_shorts.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/fragment_subscriptions.xml" value="0.14336372847011145" />
+        <entry key="app/src/main/res/layout/layout_file.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/layout/list_view.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.14285714285714285" />
+        <entry key="app/src/main/res/layout/order_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/progress_layout.xml" value="0.15020263424518743" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.2814814814814815" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.2814814814814815" />
@@ -29,5 +31,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

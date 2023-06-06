@@ -3,17 +3,27 @@ package com.example.thalir_app;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ShortsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ShortsFragment extends Fragment {
+
+    View v;
+    RecyclerView recyclerView;
+    List<OrderModal> mList;
+
+    OrderCustomAdapter orderCustomAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +44,7 @@ public class ShortsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ShortsFragment.
+     * @return A new instance of fragment LibraryFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static ShortsFragment newInstance(String param1, String param2) {
@@ -49,16 +59,26 @@ public class ShortsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        mList = new ArrayList<>();
+        mList.add(new OrderModal("Mario Antony", "Neerveli","30"));
+        mList.add(new OrderModal("Hethuya", "Thirunelveli","100"));
+        mList.add(new OrderModal("Vinoliya", "pointpedro","200"));
+        mList.add(new OrderModal("Karthika", "Jaffna","20"));
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shorts, container, false);
+        v = inflater.inflate(R.layout.fragment_shorts, container, false);
+
+        recyclerView = v.findViewById(R.id.recyclerViewId2);
+
+
+        orderCustomAdapter = new OrderCustomAdapter(mList, getContext());
+        recyclerView.setAdapter(orderCustomAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return v;
     }
 }

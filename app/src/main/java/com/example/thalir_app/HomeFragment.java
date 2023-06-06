@@ -2,11 +2,17 @@ package com.example.thalir_app;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +21,11 @@ import android.view.ViewGroup;
  */
 public class HomeFragment extends Fragment {
 
+    View v;
+    RecyclerView recyclerView;
+    List<ModalClass> mList;
+
+    CustomAdapter customAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -49,16 +60,25 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        mList = new ArrayList<>();
+        mList.add(new ModalClass(R.drawable.lorry, "Dambulla","Mon 23rd  04:30 PM"));
+        mList.add(new ModalClass(R.drawable.lorry, "Petta","Wed 25rd  05:30 PM"));
+        mList.add(new ModalClass(R.drawable.lorry, "Batticalo","Sun 29rd  07:30 PM"));
+        mList.add(new ModalClass(R.drawable.lorry, "Trinco","Mon 30th  08:30 PM"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        recyclerView = v.findViewById(R.id.recyclerViewId);
+
+        customAdapter = new CustomAdapter(mList, getContext());
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return v;
     }
+
 }
