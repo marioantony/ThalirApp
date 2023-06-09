@@ -1,0 +1,15 @@
+mutation addSchedule(
+$date: String!,
+$maxAllowedBag: Int!,
+$amountPerBag: Float!,
+$departureTime: String!,
+$departureLocation: String!,
+$destinationLocation: String!,
+$vehicleOwner_id: ID!)
+{
+    addSchedule(date: $date, maxAllowedBag: $maxAllowedBag, amountPerBag: $amountPerBag, departureTime: $departureTime, departureLocation: $departureLocation, destinationLocation: $destinationLocation, vehicleOwner_id: $vehicleOwner_id)
+    {
+        id
+        __typename
+    }
+}

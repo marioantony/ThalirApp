@@ -1,4 +1,5 @@
 plugins {
+    id 'com.apollographql.apollo'
     id 'com.android.application'
 }
 
@@ -30,7 +31,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
 }
+
+    apollo {
+//        generateKotlinModels.set(true)
+        packageName.set("com.example.thalir_app") // Replace with your package name
+//    schemaFilePath.set(file("graphql/com/app/first/schema.json")) // Replace with your schema file path
+    }
+
+
+
 
 dependencies {
 
@@ -43,4 +55,10 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.apollographql.apollo:apollo-runtime:2.5.14'
+    implementation 'com.apollographql.apollo:apollo-android-support:2.5.14'
+    implementation "com.apollographql.apollo:apollo-coroutines-support:2.5.14"
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+
+
 }
