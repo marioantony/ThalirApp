@@ -46,7 +46,7 @@ public class CreateSchedule extends AppCompatActivity {
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
          apolloClient = ApolloClient.builder()
-                .serverUrl("https://d9cc-123-231-15-197.ap.ngrok.io/graphql")
+                .serverUrl(UrlHelper.BASE_URL)
                 .okHttpClient(okHttpClient)
                 .build();
 

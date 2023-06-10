@@ -28,7 +28,7 @@
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
         <TextView
-            android:id="@+id/nameTextViewId"
+            android:id="@+id/destinationId"
             android:layout_width="110dp"
             android:layout_height="30dp"
             android:layout_marginStart="30dp"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
-            android:layout_toEndOf="@id/nameTextViewId"
+            android:layout_toEndOf="@id/destinationId"
             android:text="Mon 23rd  04:30 PM"
             android:textColor="@color/lavender"
             android:textSize="16sp" />

@@ -14,6 +14,16 @@
         android:theme="@style/Theme.ThalirApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".WelcomeScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".VehicleownerLogin"
+            android:exported="false" />
+        <activity
+            android:name=".VehicleownerSignup"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity

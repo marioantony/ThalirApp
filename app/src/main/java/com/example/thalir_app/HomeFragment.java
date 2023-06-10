@@ -2,83 +2,81 @@ package com.example.thalir_app;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.apollographql.apollo.ApolloCall;
+import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import okhttp3.OkHttpClient;
+
+
 public class HomeFragment extends Fragment {
 
-    View v;
-    RecyclerView recyclerView;
-    List<ModalClass> mList;
-
-    CustomAdapter customAdapter;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RecyclerView recyclerView;
+    private ScheduleAdapter scheduleAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mList = new ArrayList<>();
-        mList.add(new ModalClass(R.drawable.lorry, "Dambulla","Mon 23rd  04:30 PM"));
-        mList.add(new ModalClass(R.drawable.lorry, "Petta","Wed 25rd  05:30 PM"));
-        mList.add(new ModalClass(R.drawable.lorry, "Batticalo","Sun 29rd  07:30 PM"));
-        mList.add(new ModalClass(R.drawable.lorry, "Trinco","Mon 30th  08:30 PM"));
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_home, container, false);
-
-        recyclerView = v.findViewById(R.id.recyclerViewId);
-
-        customAdapter = new CustomAdapter(mList, getContext());
-        recyclerView.setAdapter(customAdapter);
+        recyclerView = view.findViewById(R.id.recyclerViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        return v;
+        scheduleAdapter = new ScheduleAdapter();
+        recyclerView.setAdapter(scheduleAdapter);
+
+        // Make the GraphQL query and populate the RecyclerView
+        queryAllSchedules();
+
+        return view;
     }
+
+    private void queryAllSchedules() {
+        ApolloClient apolloClient = ApolloClient.builder()
+                .serverUrl(UrlHelper.BASE_URL)
+                .build();
+
+        apolloClient.query(AllSchedulesQuery.builder().build()).enqueue(new ApolloCall.Callback<AllSchedulesQuery.Data>() {
+            @Override
+            public void onResponse(@NonNull Response<AllSchedulesQuery.Data> response) {
+                List<AllSchedulesQuery.AllSchedule> schedules = response.getData().allSchedules();
+                updateScheduleList(schedules);
+            }
+
+            @Override
+            public void onFailure(@NonNull ApolloException e) {
+                // Handle failure
+            }
+        });
+    }
+
+    private void updateScheduleList(List<AllSchedulesQuery.AllSchedule> schedules) {
+        // Update the RecyclerView adapter with the new list of schedules
+        if (isAdded() && getActivity() != null) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    scheduleAdapter.setSchedules(schedules);
+                    scheduleAdapter.notifyDataSetChanged();
+                }
+            });
+        }
+
+    }
+
+    // ScheduleAdapter class definition goes here
 
 }

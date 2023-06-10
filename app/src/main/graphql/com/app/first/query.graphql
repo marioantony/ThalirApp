@@ -1,0 +1,35 @@
+query allSchedules {
+    allSchedules{
+        date
+        maxAllowedBag
+        amountPerBag
+        departureLocation
+        departureTime
+        destinationLocation
+        vehicleOwner{
+            id
+            firstName
+            lastName
+            email
+            password
+        }
+    }
+}
+
+query allBooks{
+    allBooks{
+        requestedBag
+        acceptedBag
+        totalAmount
+        farmer{
+            id
+            firstName
+            address
+            currentCrops
+            futureCrops
+        }
+        schedule{
+            id
+        }
+    }
+}

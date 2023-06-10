@@ -1,0 +1,66 @@
+mutation addFarmer(
+                $firstName:String!
+                $lastName:String!
+                $email:String!
+                $password:String!
+            ){
+    addFarmer(
+        firstName:$firstName
+        lastName:$lastName
+        email:$email
+        password:$password
+    )
+    {
+        id
+        firstName
+        lastName
+        email
+        password
+    }
+}
+
+
+mutation addVehicleOwner(
+                 $firstName:String!
+                 $lastName:String!
+                 $email:String!
+                 $password:String!
+                 )
+                 {
+    addVehicleOwner(
+        firstName:$firstName
+        lastName:$lastName
+        email:$email
+        password:$password
+        ){
+            id
+            firstName
+            lastName
+            email
+            password
+        }
+}
+
+mutation loginUser(
+                $type:String!
+                $token:String!
+                $email:String!
+                $password:String!
+                ){
+    loginUser(
+    type:$type
+    token:$token
+    email:$email
+    password:$password
+    ){
+        id
+        type
+        token
+        email
+        password
+    }
+}
+
+
+
+
