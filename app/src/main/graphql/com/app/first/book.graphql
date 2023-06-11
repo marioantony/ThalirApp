@@ -1,0 +1,11 @@
+mutation addBook(
+$requestedBag:Int!,
+$farmer_id:ID!
+$schedule_id:ID!)
+{
+    addBook(requestedBag:$requestedBag,farmer_id:$farmer_id,schedule_id:$schedule_id)
+    {
+        id
+        __typename
+    }
+}
